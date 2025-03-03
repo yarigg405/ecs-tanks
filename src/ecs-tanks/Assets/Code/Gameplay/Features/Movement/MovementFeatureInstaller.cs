@@ -10,6 +10,7 @@ namespace Assets.Code.Gameplay.Features.Movement
         public override void Install(IContainerBuilder builder)
         {
             builder.Register<DirectionalDeltaMoveSystem>(Lifetime.Singleton).AsImplementedInterfaces();
+            builder.Register<TurnAlongDirectionSystem>(Lifetime.Singleton).AsImplementedInterfaces();
         }
     }
 }
