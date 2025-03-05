@@ -8,23 +8,31 @@
 //------------------------------------------------------------------------------
 public static class GameComponentsLookup {
 
-    public const int Active = 0;
-    public const int EntityLink = 1;
-    public const int Id = 2;
-    public const int Rigidbody = 3;
-    public const int Transform = 4;
-    public const int Direction = 5;
-    public const int MovementAvailable = 6;
-    public const int Moving = 7;
-    public const int Speed = 8;
-    public const int TurnedAlongDirection = 9;
-    public const int Player = 10;
-    public const int AxisInput = 11;
-    public const int Input = 12;
+    public const int Destructed = 0;
+    public const int SelfDestructTimer = 1;
+    public const int View = 2;
+    public const int ViewPrefab = 3;
+    public const int Active = 4;
+    public const int EntityLink = 5;
+    public const int Id = 6;
+    public const int Rigidbody = 7;
+    public const int Transform = 8;
+    public const int Direction = 9;
+    public const int MovementAvailable = 10;
+    public const int Moving = 11;
+    public const int Speed = 12;
+    public const int TurnedAlongDirection = 13;
+    public const int Player = 14;
+    public const int AxisInput = 15;
+    public const int Input = 16;
 
-    public const int TotalComponents = 13;
+    public const int TotalComponents = 17;
 
     public static readonly string[] componentNames = {
+        "Destructed",
+        "SelfDestructTimer",
+        "View",
+        "ViewPrefab",
         "Active",
         "EntityLink",
         "Id",
@@ -41,6 +49,10 @@ public static class GameComponentsLookup {
     };
 
     public static readonly System.Type[] componentTypes = {
+        typeof(Assets.Code.Common.Destructed),
+        typeof(Assets.Code.Common.SelfDestructTimer),
+        typeof(Assets.Code.Common.View),
+        typeof(Assets.Code.Common.ViewPrefab),
         typeof(Assets.Code.Gameplay.Common.Active),
         typeof(Assets.Code.Gameplay.Common.EntityLink),
         typeof(Assets.Code.Gameplay.Common.Id),

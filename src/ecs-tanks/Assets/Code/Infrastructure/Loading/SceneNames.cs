@@ -2,6 +2,7 @@
 {
   public static class SceneNames
     {
+        public const string InitScene = "InitScene";
         public const string HomeScreenScene = "HomeScreenScene";
         public const string GameScene = "GameScene";
     }

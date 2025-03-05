@@ -1,10 +1,13 @@
 ﻿using Assets.Code.Gameplay;
+using Assets.Code.Gameplay.Common.Collisions;
 using Assets.Code.Gameplay.Common.Time;
 using Assets.Code.Gameplay.Features.Movement;
 using Assets.Code.Gameplay.Features.Player;
 using Assets.Code.Gameplay.Input;
 using Assets.Code.Gameplay.Input.Service;
+using Assets.Code.Gameplay.Levels;
 using Assets.Code.Infrastructure.DI;
+using Assets.Code.Infrastructure.Identifiers;
 using Assets.Code.Infrastructure.Loading;
 using Assets.Code.Infrastructure.States.GameStates;
 using Assets.Code.Infrastructure.States.StateMachine;
@@ -27,6 +30,7 @@ namespace Assets.Code.Infrastructure.Installers
             BindInfrastructureServices();
             BindCommonServices();
             BindStates();
+            BindGameplayServices();
             BindFeatures();
 
             RegisterEntryPoint();
@@ -43,6 +47,7 @@ namespace Assets.Code.Infrastructure.Installers
         private void BindInfrastructureServices()
         {
             _builder.RegisterInstance(this).AsImplementedInterfaces();
+            _builder.Register<IdentifierService>(Lifetime.Singleton).AsSelf();
             _builder.Register<GameStateMachine>(Lifetime.Singleton).AsImplementedInterfaces();
             _builder.Register<SceneLoader>(Lifetime.Singleton).AsImplementedInterfaces();
         }
@@ -51,6 +56,7 @@ namespace Assets.Code.Infrastructure.Installers
         {
             _builder.Register<StandaloneInputService>(Lifetime.Singleton).AsImplementedInterfaces();
             _builder.Register<UnityTimeService>(Lifetime.Singleton).AsImplementedInterfaces();
+            _builder.Register<CollisionRegistry>(Lifetime.Singleton).AsImplementedInterfaces();
         }
 
         private void BindStates()
@@ -62,6 +68,11 @@ namespace Assets.Code.Infrastructure.Installers
             _builder.Register<LoadBattleState>(Lifetime.Transient).AsSelf();
             _builder.Register<BattleEnterState>(Lifetime.Transient).AsSelf();
             _builder.Register<BattleLoopState>(Lifetime.Transient).AsSelf();
+        }
+
+        private void BindGameplayServices()
+        {
+            _builder.Register<LevelDataProvider>(Lifetime.Singleton).AsSelf();
         }
 
         private void BindFeatures()
