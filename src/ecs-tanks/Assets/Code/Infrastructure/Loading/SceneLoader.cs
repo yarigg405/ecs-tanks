@@ -1,6 +1,7 @@
 ﻿using Cysharp.Threading.Tasks;
 using System;
 using System.Threading;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 
@@ -15,9 +16,7 @@ namespace Assets.Code.Infrastructure.Loading
 
         private async UniTaskVoid LoadAsync(string sceneName, Action onLoaded, CancellationToken cancellationToken = default)
         {
-            var operation = SceneManager.LoadSceneAsync(sceneName);
-            operation.allowSceneActivation = false;
-            await UniTask.WaitUntil(() => operation.isDone);
+            await SceneManager.LoadSceneAsync(sceneName);
             onLoaded?.Invoke();
         }
     }

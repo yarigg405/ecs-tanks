@@ -1,7 +1,12 @@
-﻿using Assets.Code.Gameplay.Common.Time;
+﻿using Assets.Code.Gameplay;
+using Assets.Code.Gameplay.Common.Time;
+using Assets.Code.Gameplay.Features.Movement;
+using Assets.Code.Gameplay.Features.Player;
+using Assets.Code.Gameplay.Input;
 using Assets.Code.Gameplay.Input.Service;
 using Assets.Code.Infrastructure.DI;
 using Assets.Code.Infrastructure.Loading;
+using Assets.Code.Infrastructure.States.GameStates;
 using Assets.Code.Infrastructure.States.StateMachine;
 using Code.Infrastructure;
 using VContainer;
@@ -10,7 +15,7 @@ using VContainer.Unity;
 
 namespace Assets.Code.Infrastructure.Installers
 {
-    public sealed class GameBootstrapInstaller : MonoInstaller, ICoroutineRunner, IInitializable
+    public sealed class BootstrapInstaller : MonoInstaller, ICoroutineRunner
     {
         private IContainerBuilder _builder;
 
@@ -22,6 +27,9 @@ namespace Assets.Code.Infrastructure.Installers
             BindInfrastructureServices();
             BindCommonServices();
             BindStates();
+            BindFeatures();
+
+            RegisterEntryPoint();
         }
 
         private void BindContexts()
@@ -47,13 +55,27 @@ namespace Assets.Code.Infrastructure.Installers
 
         private void BindStates()
         {
+            _builder.Register<BootstrapState>(Lifetime.Transient).AsSelf();
+            _builder.Register<LoadHomeScreenState>(Lifetime.Transient).AsSelf();
+            _builder.Register<HomeScreenState>(Lifetime.Transient).AsSelf();
 
+            _builder.Register<LoadBattleState>(Lifetime.Transient).AsSelf();
+            _builder.Register<BattleEnterState>(Lifetime.Transient).AsSelf();
+            _builder.Register<BattleLoopState>(Lifetime.Transient).AsSelf();
         }
 
-
-        void IInitializable.Initialize()
+        private void BindFeatures()
         {
-            // Start game
+            new MovementFeatureInstaller().Install(_builder);
+            new InputFeatureInstaller().Install(_builder);
+            new PlayerFeatureInstaller().Install(_builder);
+
+            _builder.Register<GameFeature>(Lifetime.Transient).AsSelf();
+        }
+
+        private void RegisterEntryPoint()
+        {
+            _builder.RegisterEntryPoint<GameEntryPoint>();
         }
     }
 }

@@ -457,7 +457,6 @@ GameObject:
   m_Component:
   - component: {fileID: 720592291}
   - component: {fileID: 720592290}
-  - component: {fileID: 720592292}
   m_Layer: 0
   m_Name: '[SYSTEM]'
   m_TagString: Untagged
@@ -481,8 +480,7 @@ MonoBehaviour:
     TypeName: Assets.Code.Infrastructure.DI.GameLifetimeScope
   autoRun: 1
   autoInjectGameObjects: []
-  _monoInstallers:
-  - {fileID: 720592292}
+  _monoInstallers: []
   _scriptableInstallers: []
 --- !u!4 &720592291
 Transform:
@@ -499,18 +497,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &720592292
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 720592289}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 25dcd936816879249bb262aa5eb4e7e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &858577258
 GameObject:
   m_ObjectHideFlags: 0
