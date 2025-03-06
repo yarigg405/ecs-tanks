@@ -22,7 +22,7 @@ namespace Assets.Code.Gameplay.Features.Player.Factory
         public GameEntity CreatePlayer(Vector3 spawnPos)
         {
             var baseStats = InitStats.EmptyStatDictionary()
-                .With(x => x[Stats.Speed] = 2f)
+                .With(x => x[Stats.Speed] = 5f)
                 .With(x => x[Stats.MaxHp] = 1f);
 
             return CreateEntity.Empty()

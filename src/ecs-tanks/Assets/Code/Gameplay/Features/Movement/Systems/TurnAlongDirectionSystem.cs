@@ -11,6 +11,7 @@ namespace Assets.Code.Gameplay.Features.Movement.Systems
         internal TurnAlongDirectionSystem(GameContext game)
         {
             _movers = game.GetGroup(GameMatcher.AllOf(
+                GameMatcher.TurnedAlongDirection,
                 GameMatcher.Transform,
                 GameMatcher.Direction,
                 GameMatcher.Moving

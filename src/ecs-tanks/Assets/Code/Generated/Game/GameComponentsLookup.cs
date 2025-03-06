@@ -33,8 +33,9 @@ public static class GameComponentsLookup {
     public const int Player = 22;
     public const int AxisInput = 23;
     public const int Input = 24;
+    public const int InputEmitted = 25;
 
-    public const int TotalComponents = 25;
+    public const int TotalComponents = 26;
 
     public static readonly string[] componentNames = {
         "Destructed",
@@ -61,7 +62,8 @@ public static class GameComponentsLookup {
         "TurnedAlongDirection",
         "Player",
         "AxisInput",
-        "Input"
+        "Input",
+        "InputEmitted"
     };
 
     public static readonly System.Type[] componentTypes = {
@@ -89,6 +91,7 @@ public static class GameComponentsLookup {
         typeof(Assets.Code.Gameplay.Features.Movement.TurnedAlongDirection),
         typeof(Assets.Code.Gameplay.Features.Player.Player),
         typeof(Assets.Code.Gameplay.Input.AxisInput),
-        typeof(Assets.Code.Gameplay.Input.Input)
+        typeof(Assets.Code.Gameplay.Input.Input),
+        typeof(Assets.Code.Gameplay.Input.InputEmitted)
     };
 }

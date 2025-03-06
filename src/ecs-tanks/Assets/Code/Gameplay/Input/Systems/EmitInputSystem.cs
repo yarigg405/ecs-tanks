@@ -21,7 +21,10 @@ namespace Assets.Code.Gameplay.Input.Systems
         {
             foreach (var input in _inputs)
             {
-                input.ReplaceAxisInput(new Vector2(_InputService.GetHorizontalAxis(), _InputService.GetVerticalAxis()));
+                var hor = _InputService.GetHorizontalAxis();
+                var vert = _InputService.GetVerticalAxis();
+                input.ReplaceAxisInput(new Vector2(hor, vert));
+                input.isInputEmitted = hor != 0 || vert != 0;
             }
         }
     }

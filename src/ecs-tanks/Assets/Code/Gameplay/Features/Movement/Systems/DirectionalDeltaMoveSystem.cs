@@ -17,7 +17,9 @@ namespace Assets.Code.Gameplay.Features.Movement.Systems
                 .AllOf(
                     GameMatcher.Direction,
                     GameMatcher.Speed,
-                    GameMatcher.Rigidbody
+                    GameMatcher.Rigidbody,
+                    GameMatcher.Moving,
+                    GameMatcher.MovementAvailable
                 ));
         }
 
