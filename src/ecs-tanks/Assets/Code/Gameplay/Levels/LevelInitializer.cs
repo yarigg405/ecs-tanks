@@ -7,10 +7,12 @@ namespace Assets.Code.Gameplay.Levels
     public sealed class LevelInitializer : MonoBehaviour
     {
         [SerializeField] private SpawnPositionInfo[] _spawnPositions;
-        [Inject] private readonly LevelDataProvider _levelData;
+        private LevelDataProvider _levelData;
 
-        private  void Start()
+        [Inject]
+        private void Construct(LevelDataProvider levelData)
         {
+            _levelData = levelData;
             _levelData.SetAvailableSpawnPositions(_spawnPositions);
         }
     }

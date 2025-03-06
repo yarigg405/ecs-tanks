@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 599327609}
   - component: {fileID: 599327611}
   - component: {fileID: 599327612}
+  - component: {fileID: 599327613}
   m_Layer: 0
   m_Name: Boot
   m_TagString: Untagged
@@ -156,6 +157,7 @@ MonoBehaviour:
   autoInjectGameObjects: []
   _monoInstallers:
   - {fileID: 599327611}
+  - {fileID: 599327613}
   _scriptableInstallers: []
 --- !u!4 &599327610
 Transform:
@@ -196,6 +198,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11f710d241438624695bc0ad5f74de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &599327613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 599327608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a87e7904c6898b4baa2159fc6692661, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _prefabsContainer: {fileID: 11400000, guid: b7ead3f4ce2838b4ea573b7eebf51b75, type: 2}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

@@ -17,16 +17,24 @@ public static class GameComponentsLookup {
     public const int Id = 6;
     public const int Rigidbody = 7;
     public const int Transform = 8;
-    public const int Direction = 9;
-    public const int MovementAvailable = 10;
-    public const int Moving = 11;
-    public const int Speed = 12;
-    public const int TurnedAlongDirection = 13;
-    public const int Player = 14;
-    public const int AxisInput = 15;
-    public const int Input = 16;
+    public const int WorldPosition = 9;
+    public const int BaseStats = 10;
+    public const int StatChange = 11;
+    public const int StatModifiers = 12;
+    public const int CurrentHP = 13;
+    public const int Dead = 14;
+    public const int MaxHP = 15;
+    public const int ProcessingDeath = 16;
+    public const int Direction = 17;
+    public const int MovementAvailable = 18;
+    public const int Moving = 19;
+    public const int Speed = 20;
+    public const int TurnedAlongDirection = 21;
+    public const int Player = 22;
+    public const int AxisInput = 23;
+    public const int Input = 24;
 
-    public const int TotalComponents = 17;
+    public const int TotalComponents = 25;
 
     public static readonly string[] componentNames = {
         "Destructed",
@@ -38,6 +46,14 @@ public static class GameComponentsLookup {
         "Id",
         "Rigidbody",
         "Transform",
+        "WorldPosition",
+        "BaseStats",
+        "StatChange",
+        "StatModifiers",
+        "CurrentHP",
+        "Dead",
+        "MaxHP",
+        "ProcessingDeath",
         "Direction",
         "MovementAvailable",
         "Moving",
@@ -58,6 +74,14 @@ public static class GameComponentsLookup {
         typeof(Assets.Code.Gameplay.Common.Id),
         typeof(Assets.Code.Gameplay.Common.RigidbodyComponent),
         typeof(Assets.Code.Gameplay.Common.TransformComponent),
+        typeof(Assets.Code.Gameplay.Common.WorldPosition),
+        typeof(Assets.Code.Gameplay.Features.CharacterStats.BaseStats),
+        typeof(Assets.Code.Gameplay.Features.CharacterStats.StatChange),
+        typeof(Assets.Code.Gameplay.Features.CharacterStats.StatModifiers),
+        typeof(Assets.Code.Gameplay.Features.LifetimeProcessing.CurrentHP),
+        typeof(Assets.Code.Gameplay.Features.LifetimeProcessing.Dead),
+        typeof(Assets.Code.Gameplay.Features.LifetimeProcessing.MaxHP),
+        typeof(Assets.Code.Gameplay.Features.LifetimeProcessing.ProcessingDeath),
         typeof(Assets.Code.Gameplay.Features.Movement.Direction),
         typeof(Assets.Code.Gameplay.Features.Movement.MovementAvailable),
         typeof(Assets.Code.Gameplay.Features.Movement.Moving),

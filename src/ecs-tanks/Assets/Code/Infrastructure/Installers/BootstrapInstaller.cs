@@ -3,6 +3,7 @@ using Assets.Code.Gameplay.Common.Collisions;
 using Assets.Code.Gameplay.Common.Time;
 using Assets.Code.Gameplay.Features.Movement;
 using Assets.Code.Gameplay.Features.Player;
+using Assets.Code.Gameplay.Features.Player.Factory;
 using Assets.Code.Gameplay.Input;
 using Assets.Code.Gameplay.Input.Service;
 using Assets.Code.Gameplay.Levels;
@@ -11,6 +12,8 @@ using Assets.Code.Infrastructure.Identifiers;
 using Assets.Code.Infrastructure.Loading;
 using Assets.Code.Infrastructure.States.GameStates;
 using Assets.Code.Infrastructure.States.StateMachine;
+using Assets.Code.Infrastructure.View;
+using Assets.Code.Infrastructure.View.Factory;
 using Code.Infrastructure;
 using VContainer;
 using VContainer.Unity;
@@ -29,6 +32,7 @@ namespace Assets.Code.Infrastructure.Installers
             BindContexts();
             BindInfrastructureServices();
             BindCommonServices();
+            BindFactories();
             BindStates();
             BindGameplayServices();
             BindFeatures();
@@ -59,6 +63,12 @@ namespace Assets.Code.Infrastructure.Installers
             _builder.Register<CollisionRegistry>(Lifetime.Singleton).AsImplementedInterfaces();
         }
 
+        private void BindFactories()
+        {
+            _builder.Register<PlayerFactory>(Lifetime.Singleton).AsSelf();
+            _builder.Register<EntityViewFactory>(Lifetime.Singleton).AsSelf();
+        }
+
         private void BindStates()
         {
             _builder.Register<BootstrapState>(Lifetime.Transient).AsSelf();
@@ -80,6 +90,7 @@ namespace Assets.Code.Infrastructure.Installers
             new MovementFeatureInstaller().Install(_builder);
             new InputFeatureInstaller().Install(_builder);
             new PlayerFeatureInstaller().Install(_builder);
+            new BindViewFeatureInstaller().Install(_builder);
 
             _builder.Register<GameFeature>(Lifetime.Transient).AsSelf();
         }
