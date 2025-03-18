@@ -16,7 +16,8 @@ namespace Assets.Code.Infrastructure.View.Systems
         {
             _entityViewFactory = entityViewFactory;
             _entities = game.GetGroup(GameMatcher.AllOf(
-                GameMatcher.ViewPrefab)
+                GameMatcher.ViewPrefab,
+                GameMatcher.PlayerRef)
                 .NoneOf(GameMatcher.View));
 
         }
@@ -25,7 +26,7 @@ namespace Assets.Code.Infrastructure.View.Systems
         {
             foreach (var entity in _entities.GetEntities(_buffer))
             {
-                _entityViewFactory.CreateViewForEntity(entity);
+                _entityViewFactory.CreateViewForEntity(entity, entity.PlayerRef);
                 entity.RemoveViewPrefab();
             }
         }

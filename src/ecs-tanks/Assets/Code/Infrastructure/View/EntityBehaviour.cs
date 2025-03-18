@@ -1,12 +1,13 @@
 ﻿using Assets.Code.Gameplay.Common.Collisions;
 using Assets.Code.Infrastructure.View.Registrars;
+using Fusion;
 using UnityEngine;
 using VContainer;
 
 
 namespace Assets.Code.Infrastructure.View
 {
-    public sealed class EntityBehaviour : MonoBehaviour, IEntityView
+    public sealed class EntityBehaviour : NetworkObject, IEntityView
     {
         private GameEntity _entity;
         private ICollisionRegistry _collisionRegistry;

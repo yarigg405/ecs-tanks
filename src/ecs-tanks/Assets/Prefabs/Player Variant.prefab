@@ -70,6 +70,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 327625014519526358, guid: 283adbf99322a1c4cbf95733bb35d36a, type: 3}
+      propertyPath: Flags
+      value: 262145
+      objectReference: {fileID: 0}
+    - target: {fileID: 327625014519526358, guid: 283adbf99322a1c4cbf95733bb35d36a, type: 3}
+      propertyPath: SortKey
+      value: 1702820693
+      objectReference: {fileID: 0}
+    - target: {fileID: 327625014519526358, guid: 283adbf99322a1c4cbf95733bb35d36a, type: 3}
+      propertyPath: NetworkedBehaviours.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 327625014519526358, guid: 283adbf99322a1c4cbf95733bb35d36a, type: 3}
+      propertyPath: 'NetworkedBehaviours.Array.data[0]'
+      value: 
+      objectReference: {fileID: 4192371454438458977}
     - target: {fileID: 1756500316390701636, guid: 283adbf99322a1c4cbf95733bb35d36a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -110,9 +126,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2616654757127279030, guid: 283adbf99322a1c4cbf95733bb35d36a, type: 3}
+      propertyPath: _entityView
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3961164548231138146, guid: 283adbf99322a1c4cbf95733bb35d36a, type: 3}
       propertyPath: m_Name
       value: Player Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 6368572625111204114, guid: 283adbf99322a1c4cbf95733bb35d36a, type: 3}
+      propertyPath: _entityView
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -120,8 +144,39 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1756500316390701636, guid: 283adbf99322a1c4cbf95733bb35d36a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2225862703441858826}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3961164548231138146, guid: 283adbf99322a1c4cbf95733bb35d36a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4192371454438458977}
   m_SourcePrefab: {fileID: 100100000, guid: 283adbf99322a1c4cbf95733bb35d36a, type: 3}
+--- !u!1 &5284637817981894486 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3961164548231138146, guid: 283adbf99322a1c4cbf95733bb35d36a, type: 3}
+  m_PrefabInstance: {fileID: 9200339689563223092}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4192371454438458977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5284637817981894486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a591d221a634417e9827eb58e17de84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _stateAuthorityChangeErrorCorrectionDelta: 0
+  SyncScale: 0
+  SyncParent: 1
+  _interpolationTarget: {fileID: 0}
+  UsePreciseRotation: 0
+  UseRenderSleepThresholds: 1
+  RenderThresholds:
+    UseEnergy: 1
+    Position: 0.01
+    Rotation: 0.01
+    Scale: 0.01
 --- !u!4 &7480051859433180784 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1756500316390701636, guid: 283adbf99322a1c4cbf95733bb35d36a, type: 3}

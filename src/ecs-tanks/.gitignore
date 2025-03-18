@@ -14,6 +14,8 @@
 /[Mm]emoryCaptures/
 /[Uu]ser[Ss]ettings/
 /Assets/_Example/
+/Assets/ParrelSync-master/
+/Assets/Plugins/ParrelSync/
 
 # Never ignore Asset meta data
 !/[Aa]ssets/**/*.meta

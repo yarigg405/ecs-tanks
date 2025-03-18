@@ -12,7 +12,7 @@ namespace Assets.Code.Gameplay.Features.Movement.Systems
         {
             _movers = game.GetGroup(GameMatcher.AllOf(
                 GameMatcher.TurnedAlongDirection,
-                GameMatcher.Transform,
+                GameMatcher.Rigidbody,
                 GameMatcher.Direction,
                 GameMatcher.Moving
             ));
@@ -27,7 +27,7 @@ namespace Assets.Code.Gameplay.Features.Movement.Systems
                     var direction = entity.Direction;
                     var angle = Vector2.SignedAngle(Vector2.up, direction);
 
-                    entity.Transform.rotation = Quaternion.Euler(0, -angle - 90f, 0f);
+                    entity.Rigidbody.rotation = Quaternion.Euler(0, -angle - 90f, 0f);
                 }
             }
         }

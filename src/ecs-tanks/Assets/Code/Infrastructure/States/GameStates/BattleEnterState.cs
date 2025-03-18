@@ -2,8 +2,6 @@
 using Assets.Code.Gameplay.Levels;
 using Assets.Code.Infrastructure.States.StateMachine;
 using Assets.Code.Infrastructure.States.StatesInfrastructure;
-using System.Linq;
-using Yrr.Utils;
 
 
 namespace Assets.Code.Infrastructure.States.GameStates
@@ -26,15 +24,7 @@ namespace Assets.Code.Infrastructure.States.GameStates
 
         public override void Enter()
         {
-            PlacePlayer();
             _stateMachine.Enter<BattleLoopState>();
-        }
-
-        private void PlacePlayer()
-        {
-            var spawnPosition = _levelDataProvider.SpawnPositions
-                .Where(x => !x.IsLocked).GetRandomItem().SpawnPoint.position;
-            _playerFactory.CreatePlayer(spawnPosition);
         }
     }
 }
