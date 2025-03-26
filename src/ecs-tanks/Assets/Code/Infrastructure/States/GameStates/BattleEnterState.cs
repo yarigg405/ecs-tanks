@@ -2,6 +2,9 @@
 using Assets.Code.Gameplay.Levels;
 using Assets.Code.Infrastructure.States.StateMachine;
 using Assets.Code.Infrastructure.States.StatesInfrastructure;
+using Fusion;
+using System.Linq;
+using Yrr.Utils;
 
 
 namespace Assets.Code.Infrastructure.States.GameStates
@@ -11,20 +14,31 @@ namespace Assets.Code.Infrastructure.States.GameStates
         private readonly IStateMachine _stateMachine;
         private readonly LevelDataProvider _levelDataProvider;
         private readonly PlayerFactory _playerFactory;
+        private readonly NetworkRunner _networkRunner;
 
         public BattleEnterState(
             IStateMachine stateMachine,
             LevelDataProvider levelDataProvider,
-            PlayerFactory playerFactory)
+            PlayerFactory playerFactory,
+            NetworkRunner networkRunner)
         {
             _stateMachine = stateMachine;
             _levelDataProvider = levelDataProvider;
             _playerFactory = playerFactory;
+            _networkRunner = networkRunner;
         }
 
         public override void Enter()
         {
+            SpawnPlayer();
             _stateMachine.Enter<BattleLoopState>();
+        }
+
+        private void SpawnPlayer()
+        {
+            var spawnPosition = _levelDataProvider.SpawnPositions
+                .Where(x => !x.IsLocked).GetRandomItem().SpawnPoint.position;
+            _playerFactory.CreatePlayer(spawnPosition,_networkRunner.LocalPlayer);
         }
     }
 }

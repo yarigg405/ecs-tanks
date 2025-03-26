@@ -15,11 +15,9 @@ namespace Game
 
         void IPlayerJoined.PlayerJoined(PlayerRef player)
         {
-            if (!Runner.IsServer) return;
-
-            var spawnPosition = _levelDataProvider.SpawnPositions
-                .Where(x => !x.IsLocked).GetRandomItem().SpawnPoint.position;
-            _playerFactory.CreatePlayer(spawnPosition, player);
+            //var spawnPosition = _levelDataProvider.SpawnPositions
+            //    .Where(x => !x.IsLocked).GetRandomItem().SpawnPoint.position;
+            //_playerFactory.CreatePlayer(spawnPosition, player, Runner.LocalPlayer);
         }
 
         void IPlayerLeft.PlayerLeft(PlayerRef player)

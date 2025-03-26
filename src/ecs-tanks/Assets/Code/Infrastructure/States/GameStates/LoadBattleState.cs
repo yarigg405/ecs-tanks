@@ -37,17 +37,16 @@ namespace Assets.Code.Infrastructure.States.GameStates
             _runner.ProvideInput = true;
             var args = new StartGameArgs
             {
-                GameMode = GameMode.AutoHostOrClient,
+                GameMode = GameMode.Shared,
                 SceneManager = _sceneManager,
                 SessionName = _sessionName,
             };
             await _runner.StartGame(args);
 
             SceneManager.sceneLoaded += OnSceneLoaded;
-            if (_runner.IsServer)
-            {
+
+            if (_runner.IsSceneAuthority)
                 await _runner.LoadScene(GetScene(sceneName), LoadSceneMode.Single);
-            }
         }
 
         private void OnSceneLoaded(Scene arg0, LoadSceneMode arg1)

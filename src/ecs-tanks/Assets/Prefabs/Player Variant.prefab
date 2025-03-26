@@ -129,7 +129,7 @@ PrefabInstance:
     - target: {fileID: 2616654757127279030, guid: 283adbf99322a1c4cbf95733bb35d36a, type: 3}
       propertyPath: _entityView
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 8873737255238240226}
     - target: {fileID: 3961164548231138146, guid: 283adbf99322a1c4cbf95733bb35d36a, type: 3}
       propertyPath: m_Name
       value: Player Variant
@@ -137,7 +137,7 @@ PrefabInstance:
     - target: {fileID: 6368572625111204114, guid: 283adbf99322a1c4cbf95733bb35d36a, type: 3}
       propertyPath: _entityView
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 8873737255238240226}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -182,3 +182,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1756500316390701636, guid: 283adbf99322a1c4cbf95733bb35d36a, type: 3}
   m_PrefabInstance: {fileID: 9200339689563223092}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8873737255238240226 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 327625014519526358, guid: 283adbf99322a1c4cbf95733bb35d36a, type: 3}
+  m_PrefabInstance: {fileID: 9200339689563223092}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5284637817981894486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 265e76e9cc9d4f84b9f9c29c120fab7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

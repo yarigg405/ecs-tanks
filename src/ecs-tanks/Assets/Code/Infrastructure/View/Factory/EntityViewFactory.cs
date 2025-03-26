@@ -1,4 +1,5 @@
 ﻿using Fusion;
+using System.Threading.Tasks;
 using UnityEngine;
 using VContainer;
 
@@ -16,12 +17,13 @@ namespace Assets.Code.Infrastructure.View.Factory
             _runner = runner;
         }
 
-        public EntityBehaviour CreateViewForEntity(GameEntity gameEntity, PlayerRef playerRef)
+        public async Task<EntityBehaviour> CreateViewForEntity(GameEntity gameEntity, PlayerRef playerRef)
         {
             var prefab = gameEntity.ViewPrefab;
             var spawnPos = gameEntity.WorldPosition;
 
-            var view = (EntityBehaviour)_runner.Spawn(prefab, spawnPos, Quaternion.identity, playerRef);
+            var view = await _runner.SpawnAsync(prefab, spawnPos, Quaternion.identity, playerRef) as EntityBehaviour;
+
             _resolver.Inject(view);
             view.SetEntity(gameEntity);
             return view;

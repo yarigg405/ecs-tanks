@@ -34,9 +34,10 @@ public static class GameComponentsLookup {
     public const int AxisInput = 23;
     public const int Input = 24;
     public const int InputEmitted = 25;
-    public const int PlayerRef = 26;
+    public const int LocalPlayer = 26;
+    public const int PlayerRef = 27;
 
-    public const int TotalComponents = 27;
+    public const int TotalComponents = 28;
 
     public static readonly string[] componentNames = {
         "Destructed",
@@ -65,6 +66,7 @@ public static class GameComponentsLookup {
         "AxisInput",
         "Input",
         "InputEmitted",
+        "LocalPlayer",
         "PlayerRef"
     };
 
@@ -95,6 +97,7 @@ public static class GameComponentsLookup {
         typeof(Assets.Code.Gameplay.Input.AxisInput),
         typeof(Assets.Code.Gameplay.Input.Input),
         typeof(Assets.Code.Gameplay.Input.InputEmitted),
+        typeof(Assets.Code.Networking.LocalPlayer),
         typeof(Assets.Code.Networking.PlayerRefComponent)
     };
 }
