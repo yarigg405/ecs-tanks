@@ -58,7 +58,6 @@ namespace Assets.Code.Infrastructure.Installers
 
         private void BindCommonServices()
         {
-            _builder.Register<StandaloneInputService>(Lifetime.Singleton).AsImplementedInterfaces();
             _builder.Register<UnityTimeService>(Lifetime.Singleton).AsImplementedInterfaces();
             _builder.Register<CollisionRegistry>(Lifetime.Singleton).AsImplementedInterfaces();
         }
@@ -88,7 +87,7 @@ namespace Assets.Code.Infrastructure.Installers
         private void BindFeatures()
         {
             new MovementFeatureInstaller().Install(_builder);
-            new InputFeatureInstaller().Install(_builder);
+           // new InputFeatureInstaller().Install(_builder);
             new PlayerFeatureInstaller().Install(_builder);
             new BindViewFeatureInstaller().Install(_builder);
 

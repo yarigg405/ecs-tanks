@@ -2,32 +2,45 @@ using Assets.Code.Gameplay.Features.Player.Factory;
 using Assets.Code.Gameplay.Levels;
 using Fusion;
 using System.Linq;
-using VContainer;
 using Yrr.Utils;
 
 
-namespace Game
+namespace Assets.Code.Networking
 {
-    public sealed class NetworkPlayerSpawner : SimulationBehaviour, IPlayerJoined, IPlayerLeft
+    public class NetworkPlayerSpawner
     {
-        [Inject] private readonly PlayerFactory _playerFactory;
-        [Inject] private readonly LevelDataProvider _levelDataProvider;
+        private readonly PlayerFactory _playerFactory;
+        private readonly LevelDataProvider _levelDataProvider;
+        private readonly NetworkRunner _runner;
 
-        void IPlayerJoined.PlayerJoined(PlayerRef player)
+        public NetworkPlayerSpawner(
+            LevelDataProvider levelDataProvider,
+            PlayerFactory playerFactory,
+            NetworkRunner networkRunner)
         {
-            //var spawnPosition = _levelDataProvider.SpawnPositions
-            //    .Where(x => !x.IsLocked).GetRandomItem().SpawnPoint.position;
-            //_playerFactory.CreatePlayer(spawnPosition, player, Runner.LocalPlayer);
+            _levelDataProvider = levelDataProvider;
+            _playerFactory = playerFactory;
+            _runner = networkRunner;
         }
 
-        void IPlayerLeft.PlayerLeft(PlayerRef player)
+        internal void SpawnPlayer(PlayerRef player)
         {
-            if (!Runner.IsServer) return;
+            if (!_runner.IsServer) return;
 
-            NetworkObject playerObject = Runner.GetPlayerObject(player);
+            var spawnPosition = _levelDataProvider.SpawnPositions
+                .Where(x => !x.IsLocked).GetRandomItem().SpawnPoint.position;
+            _playerFactory.CreatePlayer(spawnPosition, player);
+        }
+
+        internal void DespawnPlayer(PlayerRef player)
+        {
+
+            if (!_runner.IsServer) return;
+
+            NetworkObject playerObject = _runner.GetPlayerObject(player);
             if (playerObject != null)
             {
-                Runner.Despawn(playerObject);
+                _runner.Despawn(playerObject);
             }
         }
     }

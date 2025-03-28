@@ -30,12 +30,14 @@ namespace Assets.Code.Infrastructure.States.GameStates
 
         public override void Enter()
         {
-            SpawnPlayer();
+           // SpawnPlayer();
             _stateMachine.Enter<BattleLoopState>();
         }
 
         private void SpawnPlayer()
         {
+            if (!_networkRunner.IsServer) return;
+
             var spawnPosition = _levelDataProvider.SpawnPositions
                 .Where(x => !x.IsLocked).GetRandomItem().SpawnPoint.position;
             _playerFactory.CreatePlayer(spawnPosition,_networkRunner.LocalPlayer);

@@ -1,8 +1,6 @@
 ﻿using Assets.Code.Infrastructure.States.StateMachine;
 using Assets.Code.Infrastructure.States.StatesInfrastructure;
 using Fusion;
-using System;
-using UnityEngine;
 using UnityEngine.SceneManagement;
 
 
@@ -37,7 +35,7 @@ namespace Assets.Code.Infrastructure.States.GameStates
             _runner.ProvideInput = true;
             var args = new StartGameArgs
             {
-                GameMode = GameMode.Shared,
+                GameMode = GameMode.AutoHostOrClient,
                 SceneManager = _sceneManager,
                 SessionName = _sessionName,
             };

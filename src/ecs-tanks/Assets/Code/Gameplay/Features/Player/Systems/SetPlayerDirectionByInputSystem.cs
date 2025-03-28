@@ -1,36 +1,42 @@
-﻿using Entitas;
+﻿using Assets.Code.Gameplay.Input.Network;
+using Entitas;
+using UnityEngine;
 
 
 namespace Assets.Code.Gameplay.Features.Player.Systems
 {
     internal sealed class SetPlayerDirectionByInputSystem : IExecuteSystem
     {
+        private readonly NetworkInputService _inputService;
         private readonly IGroup<GameEntity> _players;
-        private readonly IGroup<GameEntity> _inputs;
 
-        internal SetPlayerDirectionByInputSystem(GameContext game)
+        internal SetPlayerDirectionByInputSystem(GameContext game, NetworkInputService inputService)
         {
-            _players = game.GetGroup(GameMatcher.Player);
-            _inputs = game.GetGroup(GameMatcher.Input);
+            _players = game.GetGroup(GameMatcher.AllOf(
+                GameMatcher.Player,
+                GameMatcher.PlayerRef
+                ));
+            _inputService = inputService;
         }
 
         void IExecuteSystem.Execute()
         {
-            foreach (var input in _inputs)
-                foreach (var player in _players)
+            foreach (var player in _players)
+            {
+                var input = _inputService.GetInput(player.PlayerRef);
+                var hasInput = input.HorizontalInput != 0 || input.VerticalInput != 0;
+                player.isMoving = hasInput;
+
+                if (hasInput)
                 {
-                    player.isMoving = input.isInputEmitted;
+                    var direction = new Vector2(input.HorizontalInput, input.VerticalInput).normalized;
 
-                    if (input.hasAxisInput)
-                    {
-                        var direction = input.AxisInput.normalized;
+                    if (direction.x != 0) direction.y = 0;
+                    else if (direction.y != 0) direction.x = 0;
 
-                        if (direction.x != 0) direction.y = 0;
-                        else if (direction.y != 0) direction.x = 0;
-
-                        player.ReplaceDirection(direction);
-                    }
+                    player.ReplaceDirection(direction);
                 }
+            }
         }
     }
 }
