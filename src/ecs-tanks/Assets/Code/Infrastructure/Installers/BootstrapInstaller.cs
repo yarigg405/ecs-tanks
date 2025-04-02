@@ -1,4 +1,5 @@
-﻿using Assets.Code.Gameplay;
+﻿using Assets.Code.Common.Destruct;
+using Assets.Code.Gameplay;
 using Assets.Code.Gameplay.Common.Collisions;
 using Assets.Code.Gameplay.Common.Time;
 using Assets.Code.Gameplay.Features.Movement;
@@ -87,9 +88,9 @@ namespace Assets.Code.Infrastructure.Installers
         private void BindFeatures()
         {
             new MovementFeatureInstaller().Install(_builder);
-           // new InputFeatureInstaller().Install(_builder);
             new PlayerFeatureInstaller().Install(_builder);
             new BindViewFeatureInstaller().Install(_builder);
+            new ProcessDestructFeatureInstaller().Install(_builder);
 
             _builder.Register<GameFeature>(Lifetime.Transient).AsSelf();
         }
