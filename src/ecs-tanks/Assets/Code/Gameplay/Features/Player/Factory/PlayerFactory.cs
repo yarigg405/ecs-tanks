@@ -36,6 +36,7 @@ namespace Assets.Code.Gameplay.Features.Player.Factory
                 .AddCurrentHP(baseStats[Stats.MaxHp])
                 .AddMaxHP(baseStats[Stats.MaxHp])
                 .AddPlayerRef(player)
+                .AddTeam(Shooting.Team.Player)
                 .With(x => x.isPlayer = true)
                 .With(x => x.isTurnedAlongDirection = true)
                 .With(x => x.isMovementAvailable = true)

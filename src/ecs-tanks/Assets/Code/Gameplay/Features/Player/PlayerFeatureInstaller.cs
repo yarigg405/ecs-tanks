@@ -10,6 +10,7 @@ namespace Assets.Code.Gameplay.Features.Player
         public override void Install(IContainerBuilder builder)
         {
             builder.Register<SetPlayerDirectionByInputSystem>(Lifetime.Singleton).AsImplementedInterfaces();
+            builder.Register<SetPlayerShootingByInputSystem>(Lifetime.Singleton).AsImplementedInterfaces();
         }
     }
 }

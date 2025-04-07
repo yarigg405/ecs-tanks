@@ -31,13 +31,14 @@ public static class GameComponentsLookup {
     public const int Speed = 20;
     public const int TurnedAlongDirection = 21;
     public const int Player = 22;
-    public const int AxisInput = 23;
-    public const int Input = 24;
-    public const int InputEmitted = 25;
-    public const int LocalPlayer = 26;
-    public const int PlayerRef = 27;
+    public const int Team = 23;
+    public const int AxisInput = 24;
+    public const int Input = 25;
+    public const int InputEmitted = 26;
+    public const int LocalPlayer = 27;
+    public const int PlayerRef = 28;
 
-    public const int TotalComponents = 28;
+    public const int TotalComponents = 29;
 
     public static readonly string[] componentNames = {
         "Destructed",
@@ -63,6 +64,7 @@ public static class GameComponentsLookup {
         "Speed",
         "TurnedAlongDirection",
         "Player",
+        "Team",
         "AxisInput",
         "Input",
         "InputEmitted",
@@ -94,6 +96,7 @@ public static class GameComponentsLookup {
         typeof(Assets.Code.Gameplay.Features.Movement.Speed),
         typeof(Assets.Code.Gameplay.Features.Movement.TurnedAlongDirection),
         typeof(Assets.Code.Gameplay.Features.Player.Player),
+        typeof(Assets.Code.Gameplay.Features.Shooting.TeamComponent),
         typeof(Assets.Code.Gameplay.Input.AxisInput),
         typeof(Assets.Code.Gameplay.Input.Input),
         typeof(Assets.Code.Gameplay.Input.InputEmitted),

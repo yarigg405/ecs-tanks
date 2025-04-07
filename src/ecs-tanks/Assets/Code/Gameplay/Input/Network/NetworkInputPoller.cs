@@ -8,7 +8,7 @@ namespace Assets.Code.Gameplay.Input.Network
     {
         private const string AXIS_HORIZONTAL = "Horizontal";
         private const string AXIS_VERTICAL = "Vertical";
-        private const string BUTTON_FIRE1 = "Fire1";
+        private const string BUTTON_FIRE1 = "Jump";
 
 
         public void SetInput(NetworkInput input)

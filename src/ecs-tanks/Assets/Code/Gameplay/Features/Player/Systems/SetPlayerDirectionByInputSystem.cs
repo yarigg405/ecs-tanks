@@ -14,7 +14,8 @@ namespace Assets.Code.Gameplay.Features.Player.Systems
         {
             _players = game.GetGroup(GameMatcher.AllOf(
                 GameMatcher.Player,
-                GameMatcher.PlayerRef
+                GameMatcher.PlayerRef,
+                GameMatcher.Direction
                 ));
             _inputService = inputService;
         }
