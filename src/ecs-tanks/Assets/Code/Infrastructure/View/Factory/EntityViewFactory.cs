@@ -17,12 +17,24 @@ namespace Assets.Code.Infrastructure.View.Factory
             _runner = runner;
         }
 
-        public async Task<EntityBehaviour> CreateViewForEntity(GameEntity gameEntity, PlayerRef playerRef)
+        public async Task<EntityBehaviour> CreateViewForPlayer(GameEntity gameEntity, PlayerRef playerRef)
         {
             var prefab = gameEntity.ViewPrefab;
             var spawnPos = gameEntity.WorldPosition;
 
             var view = await _runner.SpawnAsync(prefab, spawnPos, Quaternion.identity, playerRef) as EntityBehaviour;
+
+            _resolver.Inject(view);
+            view.SetEntity(gameEntity);
+            return view;
+        }
+
+        public async Task<EntityBehaviour> CreateViewForEntity(GameEntity gameEntity)
+        {
+            var prefab = gameEntity.ViewPrefab;
+            var spawnPos = gameEntity.WorldPosition;
+
+            var view = await _runner.SpawnAsync(prefab, spawnPos, Quaternion.identity) as EntityBehaviour;
 
             _resolver.Inject(view);
             view.SetEntity(gameEntity);

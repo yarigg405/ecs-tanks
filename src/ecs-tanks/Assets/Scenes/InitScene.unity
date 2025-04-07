@@ -214,6 +214,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _prefabsContainer: {fileID: 11400000, guid: b7ead3f4ce2838b4ea573b7eebf51b75, type: 2}
+  _staticDataContainer: {fileID: 11400000, guid: 066167227aa9098438a06ae6a33eaca2, type: 2}
 --- !u!114 &599327614
 MonoBehaviour:
   m_ObjectHideFlags: 0

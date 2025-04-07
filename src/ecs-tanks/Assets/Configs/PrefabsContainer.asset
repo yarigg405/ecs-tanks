@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9700e8947fb0b764ab24788e64591b0d, type: 3}
   m_Name: PrefabsContainer
   m_EditorClassIdentifier: 
-  PlayerPrefab: {fileID: 8873737255238240226, guid: 54ba15bac2f7628488b869b9e01882d1, type: 3}
+  <PlayerPrefab>k__BackingField: {fileID: 8873737255238240226, guid: 54ba15bac2f7628488b869b9e01882d1, type: 3}

@@ -5,14 +5,14 @@ using System.Collections.Generic;
 
 namespace Assets.Code.Infrastructure.View.Systems
 {
-    internal sealed class BindEntityViewFromPrefabSystem : IExecuteSystem
+    internal sealed class BindPlayerEntityViewFromPrefabSystem : IExecuteSystem
     {
         private readonly EntityViewFactory _entityViewFactory;
 
         private readonly IGroup<GameEntity> _entities;
         private readonly List<GameEntity> _buffer = new(32);
 
-        internal BindEntityViewFromPrefabSystem(GameContext game, EntityViewFactory entityViewFactory)
+        internal BindPlayerEntityViewFromPrefabSystem(GameContext game, EntityViewFactory entityViewFactory)
         {
             _entityViewFactory = entityViewFactory;
             _entities = game.GetGroup(GameMatcher.AllOf(
@@ -26,7 +26,7 @@ namespace Assets.Code.Infrastructure.View.Systems
         {
             foreach (var entity in _entities.GetEntities(_buffer))
             {
-                _entityViewFactory.CreateViewForEntity(entity, entity.PlayerRef);
+                _entityViewFactory.CreateViewForPlayer(entity, entity.PlayerRef);
                 entity.RemoveViewPrefab();
             }
         }

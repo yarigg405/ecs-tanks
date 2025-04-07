@@ -1,4 +1,5 @@
 using Assets.Code.Gameplay.Features.Player.Factory;
+using Assets.Code.Gameplay.Features.Shooting.Factory;
 using Assets.Code.Gameplay.Levels;
 using Fusion;
 using System.Linq;
@@ -10,17 +11,20 @@ namespace Assets.Code.Networking
     public class NetworkPlayerSpawner
     {
         private readonly PlayerFactory _playerFactory;
+        private readonly GunsFactory _gunFactory;
         private readonly LevelDataProvider _levelDataProvider;
         private readonly NetworkRunner _runner;
 
         public NetworkPlayerSpawner(
             LevelDataProvider levelDataProvider,
             PlayerFactory playerFactory,
-            NetworkRunner networkRunner)
+            NetworkRunner networkRunner,
+            GunsFactory gunFactory)
         {
             _levelDataProvider = levelDataProvider;
             _playerFactory = playerFactory;
             _runner = networkRunner;
+            _gunFactory = gunFactory;
         }
 
         internal void SpawnPlayer(PlayerRef player)
@@ -29,7 +33,9 @@ namespace Assets.Code.Networking
 
             var spawnPosition = _levelDataProvider.SpawnPositions
                 .Where(x => !x.IsLocked).GetRandomItem().SpawnPoint.position;
-            _playerFactory.CreatePlayer(spawnPosition, player);
+            var playerEntity = _playerFactory.CreatePlayer(spawnPosition, player);
+
+            _gunFactory.CreateGun(playerEntity, 1);
         }
 
         internal void DespawnPlayer(PlayerRef player)

@@ -9,10 +9,12 @@ namespace Assets.Code.Infrastructure.Installers
     public sealed class StaticDataInstaller : MonoInstaller
     {
         [SerializeField] private PrefabsContainer _prefabsContainer;
+        [SerializeField] private StaticDataContainer _staticDataContainer;
 
         public override void Install(IContainerBuilder builder)
         {
             builder.RegisterInstance(_prefabsContainer);
+            builder.RegisterInstance(_staticDataContainer);
         }
     }
 }

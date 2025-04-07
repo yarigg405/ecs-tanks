@@ -21,24 +21,40 @@ public static class GameComponentsLookup {
     public const int BaseStats = 10;
     public const int StatChange = 11;
     public const int StatModifiers = 12;
-    public const int CurrentHP = 13;
-    public const int Dead = 14;
-    public const int MaxHP = 15;
-    public const int ProcessingDeath = 16;
-    public const int Direction = 17;
-    public const int MovementAvailable = 18;
-    public const int Moving = 19;
-    public const int Speed = 20;
-    public const int TurnedAlongDirection = 21;
-    public const int Player = 22;
-    public const int Team = 23;
-    public const int AxisInput = 24;
-    public const int Input = 25;
-    public const int InputEmitted = 26;
-    public const int LocalPlayer = 27;
-    public const int PlayerRef = 28;
+    public const int Cooldown = 13;
+    public const int CooldownLeft = 14;
+    public const int CooldownUp = 15;
+    public const int CurrentHP = 16;
+    public const int Dead = 17;
+    public const int MaxHP = 18;
+    public const int ProcessingDeath = 19;
+    public const int Direction = 20;
+    public const int MovementAvailable = 21;
+    public const int Moving = 22;
+    public const int Speed = 23;
+    public const int TurnedAlongDirection = 24;
+    public const int Player = 25;
+    public const int Projectile = 26;
+    public const int Shooter = 27;
+    public const int ShotRequested = 28;
+    public const int TargetLimit = 29;
+    public const int Team = 30;
+    public const int CollectingTargetsContiniously = 31;
+    public const int CollectTargetsInterval = 32;
+    public const int CollectTargetsTimer = 33;
+    public const int LayerMask = 34;
+    public const int ProcessedTargets = 35;
+    public const int Radius = 36;
+    public const int Reached = 37;
+    public const int ReadyToCollectTargets = 38;
+    public const int TargetsBuffer = 39;
+    public const int AxisInput = 40;
+    public const int Input = 41;
+    public const int InputEmitted = 42;
+    public const int LocalPlayer = 43;
+    public const int PlayerRef = 44;
 
-    public const int TotalComponents = 29;
+    public const int TotalComponents = 45;
 
     public static readonly string[] componentNames = {
         "Destructed",
@@ -54,6 +70,9 @@ public static class GameComponentsLookup {
         "BaseStats",
         "StatChange",
         "StatModifiers",
+        "Cooldown",
+        "CooldownLeft",
+        "CooldownUp",
         "CurrentHP",
         "Dead",
         "MaxHP",
@@ -64,7 +83,20 @@ public static class GameComponentsLookup {
         "Speed",
         "TurnedAlongDirection",
         "Player",
+        "Projectile",
+        "Shooter",
+        "ShotRequested",
+        "TargetLimit",
         "Team",
+        "CollectingTargetsContiniously",
+        "CollectTargetsInterval",
+        "CollectTargetsTimer",
+        "LayerMask",
+        "ProcessedTargets",
+        "Radius",
+        "Reached",
+        "ReadyToCollectTargets",
+        "TargetsBuffer",
         "AxisInput",
         "Input",
         "InputEmitted",
@@ -86,6 +118,9 @@ public static class GameComponentsLookup {
         typeof(Assets.Code.Gameplay.Features.CharacterStats.BaseStats),
         typeof(Assets.Code.Gameplay.Features.CharacterStats.StatChange),
         typeof(Assets.Code.Gameplay.Features.CharacterStats.StatModifiers),
+        typeof(Assets.Code.Gameplay.Features.Cooldowns.Cooldown),
+        typeof(Assets.Code.Gameplay.Features.Cooldowns.CooldownLeft),
+        typeof(Assets.Code.Gameplay.Features.Cooldowns.CooldownUp),
         typeof(Assets.Code.Gameplay.Features.LifetimeProcessing.CurrentHP),
         typeof(Assets.Code.Gameplay.Features.LifetimeProcessing.Dead),
         typeof(Assets.Code.Gameplay.Features.LifetimeProcessing.MaxHP),
@@ -96,7 +131,20 @@ public static class GameComponentsLookup {
         typeof(Assets.Code.Gameplay.Features.Movement.Speed),
         typeof(Assets.Code.Gameplay.Features.Movement.TurnedAlongDirection),
         typeof(Assets.Code.Gameplay.Features.Player.Player),
+        typeof(Assets.Code.Gameplay.Features.Shooting.Projectile),
+        typeof(Assets.Code.Gameplay.Features.Shooting.Shooter),
+        typeof(Assets.Code.Gameplay.Features.Shooting.ShotRequested),
+        typeof(Assets.Code.Gameplay.Features.Shooting.TargetLimit),
         typeof(Assets.Code.Gameplay.Features.Shooting.TeamComponent),
+        typeof(Assets.Code.Gameplay.Features.TargetCollection.CollectingTargetsContiniously),
+        typeof(Assets.Code.Gameplay.Features.TargetCollection.CollectTargetsInterval),
+        typeof(Assets.Code.Gameplay.Features.TargetCollection.CollectTargetsTimer),
+        typeof(Assets.Code.Gameplay.Features.TargetCollection.LayerMask),
+        typeof(Assets.Code.Gameplay.Features.TargetCollection.ProcessedTargets),
+        typeof(Assets.Code.Gameplay.Features.TargetCollection.Radius),
+        typeof(Assets.Code.Gameplay.Features.TargetCollection.Reached),
+        typeof(Assets.Code.Gameplay.Features.TargetCollection.ReadyToCollectTargets),
+        typeof(Assets.Code.Gameplay.Features.TargetCollection.TargetsBuffer),
         typeof(Assets.Code.Gameplay.Input.AxisInput),
         typeof(Assets.Code.Gameplay.Input.Input),
         typeof(Assets.Code.Gameplay.Input.InputEmitted),

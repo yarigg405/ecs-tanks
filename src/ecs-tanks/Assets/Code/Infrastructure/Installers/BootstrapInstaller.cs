@@ -2,11 +2,12 @@
 using Assets.Code.Gameplay;
 using Assets.Code.Gameplay.Common.Collisions;
 using Assets.Code.Gameplay.Common.Time;
+using Assets.Code.Gameplay.Features.Cooldowns;
 using Assets.Code.Gameplay.Features.Movement;
 using Assets.Code.Gameplay.Features.Player;
 using Assets.Code.Gameplay.Features.Player.Factory;
-using Assets.Code.Gameplay.Input;
-using Assets.Code.Gameplay.Input.Service;
+using Assets.Code.Gameplay.Features.Shooting;
+using Assets.Code.Gameplay.Features.Shooting.Factory;
 using Assets.Code.Gameplay.Levels;
 using Assets.Code.Infrastructure.DI;
 using Assets.Code.Infrastructure.Identifiers;
@@ -67,6 +68,8 @@ namespace Assets.Code.Infrastructure.Installers
         {
             _builder.Register<PlayerFactory>(Lifetime.Singleton).AsSelf();
             _builder.Register<EntityViewFactory>(Lifetime.Singleton).AsSelf();
+            _builder.Register<BulletsFactory>(Lifetime.Singleton).AsSelf();
+            _builder.Register<GunsFactory>(Lifetime.Singleton).AsSelf();
         }
 
         private void BindStates()
@@ -91,6 +94,8 @@ namespace Assets.Code.Infrastructure.Installers
             new PlayerFeatureInstaller().Install(_builder);
             new BindViewFeatureInstaller().Install(_builder);
             new ProcessDestructFeatureInstaller().Install(_builder);
+            new CooldownsFeatureInstaller().Install(_builder);
+            new ShootingFeatureInstaller().Install(_builder);
 
             _builder.Register<GameFeature>(Lifetime.Transient).AsSelf();
         }

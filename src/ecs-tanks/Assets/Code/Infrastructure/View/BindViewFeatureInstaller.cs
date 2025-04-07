@@ -9,7 +9,8 @@ namespace Assets.Code.Infrastructure.View
     {
         public override void Install(IContainerBuilder builder)
         {
-            builder.Register<BindEntityViewFromPrefabSystem>(Lifetime.Singleton).AsImplementedInterfaces();
+            builder.Register<BindPlayerEntityViewFromPrefabSystem>(Lifetime.Singleton).AsImplementedInterfaces();
+            builder.Register<BindGameEntityViewFromPrefabSystem>(Lifetime.Singleton).AsImplementedInterfaces();
         }
     }
 }
