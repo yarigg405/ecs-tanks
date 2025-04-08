@@ -48,9 +48,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5938299416226154190, guid: 0ecf0c26d8fc6cc4aa4e76135adaa7be, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6141556465483342506, guid: 0ecf0c26d8fc6cc4aa4e76135adaa7be, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 8813933393678139772, guid: 0ecf0c26d8fc6cc4aa4e76135adaa7be, type: 3}
       propertyPath: m_Name
       value: Tank1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8813933393678139772, guid: 0ecf0c26d8fc6cc4aa4e76135adaa7be, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -133,6 +145,10 @@ PrefabInstance:
     - target: {fileID: 3961164548231138146, guid: 283adbf99322a1c4cbf95733bb35d36a, type: 3}
       propertyPath: m_Name
       value: Player Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 3961164548231138146, guid: 283adbf99322a1c4cbf95733bb35d36a, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6368572625111204114, guid: 283adbf99322a1c4cbf95733bb35d36a, type: 3}
       propertyPath: _entityView

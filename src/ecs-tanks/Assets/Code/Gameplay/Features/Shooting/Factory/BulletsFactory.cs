@@ -2,6 +2,7 @@
 using Assets.Code.Common.Extensions;
 using Assets.Code.Gameplay.StaticData;
 using Assets.Code.Infrastructure.Identifiers;
+using Code.Common.Extensions;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -31,11 +32,15 @@ namespace Assets.Code.Gameplay.Features.Shooting.Factory
                 .AddWorldPosition(at)
                 .AddSpeed(setup.Speed)
                 .AddRadius(setup.ContactRadius)
+                .AddDamage(setup.Damage)
                 .AddTargetsBuffer(new List<int>(4))
                 .AddTargetLimit(setup.Pierce)
                 .AddViewPrefab(bulletLevel.ViewPrefab)
+                .AddCollectTargetsInterval(0.2f)
+                .AddCollectTargetsTimer(0.2f)
                 .With(x => x.isReadyToCollectTargets = true)
                 .AddSelfDestructTimer(5f)
+                .AddLayerMask(CollisionLayer.Player.AsMask())
                 ;
         }
     }

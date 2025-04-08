@@ -34,9 +34,12 @@ namespace Assets.Code.Gameplay.Features.Shooting.Systems
             {
                 var shotPos = shooter.Transform.position;
                 shotPos.y += 0.5f;
+                shotPos.x += shooter.Direction.x * 1.5f;
+                shotPos.z += shooter.Direction.y * 1.5f;
+
                 var bullet = _bulletsFactory.CreateBullet(1, shotPos)
                     .With(x => x.isMoving = true)
-                    .With(x=>x.isMovementAvailable = true)
+                    .With(x => x.isMovementAvailable = true)
                     .AddTeam(shooter.Team)
                     .ReplaceDirection(shooter.Direction)
                     ;

@@ -1,13 +1,16 @@
 ﻿using Assets.Code.Common.Destruct;
 using Assets.Code.Gameplay;
 using Assets.Code.Gameplay.Common.Collisions;
+using Assets.Code.Gameplay.Common.Physics;
 using Assets.Code.Gameplay.Common.Time;
 using Assets.Code.Gameplay.Features.Cooldowns;
+using Assets.Code.Gameplay.Features.DamageApplication;
 using Assets.Code.Gameplay.Features.Movement;
 using Assets.Code.Gameplay.Features.Player;
 using Assets.Code.Gameplay.Features.Player.Factory;
 using Assets.Code.Gameplay.Features.Shooting;
 using Assets.Code.Gameplay.Features.Shooting.Factory;
+using Assets.Code.Gameplay.Features.TargetCollection;
 using Assets.Code.Gameplay.Levels;
 using Assets.Code.Infrastructure.DI;
 using Assets.Code.Infrastructure.Identifiers;
@@ -62,6 +65,7 @@ namespace Assets.Code.Infrastructure.Installers
         {
             _builder.Register<UnityTimeService>(Lifetime.Singleton).AsImplementedInterfaces();
             _builder.Register<CollisionRegistry>(Lifetime.Singleton).AsImplementedInterfaces();
+            _builder.Register<PhysicsService>(Lifetime.Singleton).AsImplementedInterfaces();
         }
 
         private void BindFactories()
@@ -96,6 +100,8 @@ namespace Assets.Code.Infrastructure.Installers
             new ProcessDestructFeatureInstaller().Install(_builder);
             new CooldownsFeatureInstaller().Install(_builder);
             new ShootingFeatureInstaller().Install(_builder);
+            new TargetCollectionFeatureInstaller().Install(_builder);
+            new DamageApplicationFeatureInstaller().Install(_builder);
 
             _builder.Register<GameFeature>(Lifetime.Transient).AsSelf();
         }

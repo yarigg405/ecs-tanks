@@ -8,5 +8,6 @@ namespace Assets.Code.Gameplay.Features.Shooting
     [Game] public class Projectile : IComponent { }
     [Game] public class TeamComponent : IComponent { public Team Value; }
     [Game] public class TargetLimit : IComponent { public int Value; }
-
+    [Game] public class Damage : IComponent { public float Value; }
+    [Game] public class Processed : IComponent { }
 }

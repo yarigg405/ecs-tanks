@@ -34,27 +34,29 @@ public static class GameComponentsLookup {
     public const int Speed = 23;
     public const int TurnedAlongDirection = 24;
     public const int Player = 25;
-    public const int Projectile = 26;
-    public const int Shooter = 27;
-    public const int ShotRequested = 28;
-    public const int TargetLimit = 29;
-    public const int Team = 30;
-    public const int CollectingTargetsContiniously = 31;
-    public const int CollectTargetsInterval = 32;
-    public const int CollectTargetsTimer = 33;
-    public const int LayerMask = 34;
-    public const int ProcessedTargets = 35;
-    public const int Radius = 36;
-    public const int Reached = 37;
-    public const int ReadyToCollectTargets = 38;
-    public const int TargetsBuffer = 39;
-    public const int AxisInput = 40;
-    public const int Input = 41;
-    public const int InputEmitted = 42;
-    public const int LocalPlayer = 43;
-    public const int PlayerRef = 44;
+    public const int Damage = 26;
+    public const int Processed = 27;
+    public const int Projectile = 28;
+    public const int Shooter = 29;
+    public const int ShotRequested = 30;
+    public const int TargetLimit = 31;
+    public const int Team = 32;
+    public const int CollectingTargetsContiniously = 33;
+    public const int CollectTargetsInterval = 34;
+    public const int CollectTargetsTimer = 35;
+    public const int LayerMask = 36;
+    public const int ProcessedTargets = 37;
+    public const int Radius = 38;
+    public const int Reached = 39;
+    public const int ReadyToCollectTargets = 40;
+    public const int TargetsBuffer = 41;
+    public const int AxisInput = 42;
+    public const int Input = 43;
+    public const int InputEmitted = 44;
+    public const int LocalPlayer = 45;
+    public const int PlayerRef = 46;
 
-    public const int TotalComponents = 45;
+    public const int TotalComponents = 47;
 
     public static readonly string[] componentNames = {
         "Destructed",
@@ -83,6 +85,8 @@ public static class GameComponentsLookup {
         "Speed",
         "TurnedAlongDirection",
         "Player",
+        "Damage",
+        "Processed",
         "Projectile",
         "Shooter",
         "ShotRequested",
@@ -131,6 +135,8 @@ public static class GameComponentsLookup {
         typeof(Assets.Code.Gameplay.Features.Movement.Speed),
         typeof(Assets.Code.Gameplay.Features.Movement.TurnedAlongDirection),
         typeof(Assets.Code.Gameplay.Features.Player.Player),
+        typeof(Assets.Code.Gameplay.Features.Shooting.Damage),
+        typeof(Assets.Code.Gameplay.Features.Shooting.Processed),
         typeof(Assets.Code.Gameplay.Features.Shooting.Projectile),
         typeof(Assets.Code.Gameplay.Features.Shooting.Shooter),
         typeof(Assets.Code.Gameplay.Features.Shooting.ShotRequested),
