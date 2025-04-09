@@ -31,7 +31,7 @@ namespace Assets.Code.Gameplay.Features.DamageApplication.Systems
                         if (damageDealer.TargetLimit <= 0)
                         {
                             damageDealer.isProcessed = true;
-                        }                            
+                        }
                     }
                 }
         }

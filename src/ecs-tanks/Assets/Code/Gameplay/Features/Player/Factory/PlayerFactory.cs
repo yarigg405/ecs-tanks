@@ -24,7 +24,7 @@ namespace Assets.Code.Gameplay.Features.Player.Factory
         {
             var baseStats = InitStats.EmptyStatDictionary()
                 .With(x => x[Stats.Speed] = 5f)
-                .With(x => x[Stats.MaxHp] = 1f);
+                .With(x => x[Stats.MaxHp] = 15f);
 
             return CreateEntity.Empty()
                 .AddId(_identifier.Next())

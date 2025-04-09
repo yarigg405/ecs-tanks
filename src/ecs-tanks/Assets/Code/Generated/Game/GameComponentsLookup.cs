@@ -26,37 +26,38 @@ public static class GameComponentsLookup {
     public const int CooldownUp = 15;
     public const int CurrentHP = 16;
     public const int Dead = 17;
-    public const int MaxHP = 18;
-    public const int ProcessingDeath = 19;
-    public const int Direction = 20;
-    public const int MovementAvailable = 21;
-    public const int Moving = 22;
-    public const int Speed = 23;
-    public const int TurnedAlongDirection = 24;
-    public const int Player = 25;
-    public const int Damage = 26;
-    public const int Processed = 27;
-    public const int Projectile = 28;
-    public const int Shooter = 29;
-    public const int ShotRequested = 30;
-    public const int TargetLimit = 31;
-    public const int Team = 32;
-    public const int CollectingTargetsContiniously = 33;
-    public const int CollectTargetsInterval = 34;
-    public const int CollectTargetsTimer = 35;
-    public const int LayerMask = 36;
-    public const int ProcessedTargets = 37;
-    public const int Radius = 38;
-    public const int Reached = 39;
-    public const int ReadyToCollectTargets = 40;
-    public const int TargetsBuffer = 41;
-    public const int AxisInput = 42;
-    public const int Input = 43;
-    public const int InputEmitted = 44;
-    public const int LocalPlayer = 45;
-    public const int PlayerRef = 46;
+    public const int Healthbar = 18;
+    public const int MaxHP = 19;
+    public const int ProcessingDeath = 20;
+    public const int Direction = 21;
+    public const int MovementAvailable = 22;
+    public const int Moving = 23;
+    public const int Speed = 24;
+    public const int TurnedAlongDirection = 25;
+    public const int Player = 26;
+    public const int Damage = 27;
+    public const int Processed = 28;
+    public const int Projectile = 29;
+    public const int Shooter = 30;
+    public const int ShotRequested = 31;
+    public const int TargetLimit = 32;
+    public const int Team = 33;
+    public const int CollectingTargetsContiniously = 34;
+    public const int CollectTargetsInterval = 35;
+    public const int CollectTargetsTimer = 36;
+    public const int LayerMask = 37;
+    public const int ProcessedTargets = 38;
+    public const int Radius = 39;
+    public const int Reached = 40;
+    public const int ReadyToCollectTargets = 41;
+    public const int TargetsBuffer = 42;
+    public const int AxisInput = 43;
+    public const int Input = 44;
+    public const int InputEmitted = 45;
+    public const int LocalPlayer = 46;
+    public const int PlayerRef = 47;
 
-    public const int TotalComponents = 47;
+    public const int TotalComponents = 48;
 
     public static readonly string[] componentNames = {
         "Destructed",
@@ -77,6 +78,7 @@ public static class GameComponentsLookup {
         "CooldownUp",
         "CurrentHP",
         "Dead",
+        "Healthbar",
         "MaxHP",
         "ProcessingDeath",
         "Direction",
@@ -127,6 +129,7 @@ public static class GameComponentsLookup {
         typeof(Assets.Code.Gameplay.Features.Cooldowns.CooldownUp),
         typeof(Assets.Code.Gameplay.Features.LifetimeProcessing.CurrentHP),
         typeof(Assets.Code.Gameplay.Features.LifetimeProcessing.Dead),
+        typeof(Assets.Code.Gameplay.Features.LifetimeProcessing.HealthbarComponent),
         typeof(Assets.Code.Gameplay.Features.LifetimeProcessing.MaxHP),
         typeof(Assets.Code.Gameplay.Features.LifetimeProcessing.ProcessingDeath),
         typeof(Assets.Code.Gameplay.Features.Movement.Direction),

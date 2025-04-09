@@ -7,4 +7,5 @@ namespace Assets.Code.Gameplay.Features.LifetimeProcessing
     [Game] public class CurrentHP : IComponent { public float Value; }
     [Game] public class Dead : IComponent { }
     [Game] public class ProcessingDeath : IComponent { }
+    [Game] public class HealthbarComponent : IComponent { public Healthbar Value; }
 }
